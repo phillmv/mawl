@@ -1,0 +1,34 @@
+name: Arquivo Static Site Generator
+description: 'MAWL: Make a weblog! MAWL converts repositories (or repo subfolders) containing markdown or html files, etc, into fully fledged blog-like static sites. It then pushes that site to any given repo+branch, so that it may be hosted as a GitHub Page.'
+author: "Phill MV"
+branding:
+  icon: 'book-open'
+  color: 'blue'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+inputs:
+  CNAME:
+    description: 'Your GitHub Pages CNAME, if any.'
+    required: false
+    default: ''
+  INPUT_FOLDER:
+    description: 'A subdirectory of the input repository which contains the markdown we wish to convert to a static site, i.e. docs/ or src/blog'
+    required: false
+    default: ''
+  GITHUB_REPOSITORY:
+    description: 'Target GitHub repository, which receives the built static site.'
+    required: false
+    default: ${{ github.repository }}
+  REMOTE_BRANCH:
+    description: 'Target repository branch for the built static site.'
+    required: false
+    default: 'gh-pages'
+  GITHUB_ACTOR:
+    description: 'Name of the deploy actor'
+    required: false
+    default: ${{ github.actor }}
+  GITHUB_TOKEN:
+    description: 'Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}'
+    required: false
+    default: ${{ github.token }}
