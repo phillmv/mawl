@@ -1,5 +1,5 @@
-name: Arquivo Static Site Generator
-description: 'MAWL: Make a weblog! MAWL converts repositories (or repo subfolders) containing markdown or html files, etc, into fully fledged blog-like static sites. It then pushes that site to any given repo+branch, so that it may be hosted as a GitHub Page.'
+name: MAWL
+description: 'MAWL: Make a weblog! MAWL converts repositories containing markdown into fully fledged blog-like static sites & hosts them on GH Pages.'
 author: "Phill MV"
 branding:
   icon: 'book-open'
