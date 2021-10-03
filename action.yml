@@ -1,5 +1,5 @@
-name: MAWL
-description: 'MAWL: Make a weblog! MAWL converts repositories containing markdown into fully fledged blog-like static sites & hosts them on GH Pages.'
+name: 'MAWL: make a weblog!'
+description: 'MAWL: Make a weblog! MAWL converts repos w/markdown files into full blog-like static sites for hosting on GH Pages.'
 author: "Phill MV"
 branding:
   icon: 'book-open'
