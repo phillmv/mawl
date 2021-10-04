@@ -21,7 +21,7 @@ A file with a path like this:
 - `foo/bar/example.md`, will end up 
 - `foo/bar/example.html`
 
-**Example:** This [repository](https://github.com/phillmv/public2), generates [this site](https://phillmv.github.io/public2/).
+**Example:** This [repository](https://github.com/phillmv/mawl-example), generates [this site](https://phillmv.github.io/mawl-example/).
 
 ## Getting started
 
