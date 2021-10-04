@@ -53,7 +53,7 @@ jobs:
 
 Then, write content!
 
-Files ending with `.markdown`, `.md` and `.html` will get added to the site's timeline.
+Files ending with `.markdown`, `.md` and `.html` will get added to the site's timeline. For customization options, see below.
 
 Once you're done, [turn on GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site) and make sure the `gh-pages` branch is selected.
 
@@ -109,19 +109,24 @@ hide: <boolean> # prevents an entry from appearing in the timeline
 subject: <string> # forcibly sets an entry title
 ```
 
-## Can you provide more extensive documentation and examples?
+## How do I customize the site? / Can you provide more extensive documentation and examples?
 
-I'm getting this off the ground. For now, the best example really is my personal site: https://github.com/phillmv/okayfail.com/tree/master/source
+You can set a custom header title & description by creating either of two files:
 
-- Inside each entry, in the frontmatter, you can define `occurred_at` for specifying a particular date. You can also set `hide: true` to avoid showing the entry in the timeline.
-- The `.site/` folder is special, and so is the `.site/config.yaml` file. You can override views by adding templates to `.site/views/`.
+- `_title.md` and
+- `_description.md`
+
+You can also overhaul all of the CSS and every template with your own custom code. I'm still getting this project off the ground, so for now, the best example really is my personal site: https://github.com/phillmv/okayfail.com/tree/master/source
+
+- The `.site/` folder is special, and so is the `.site/config.yaml` file.
+- You can override views by adding templates to `.site/views/`.
 - If you want to customize css, put all of your stuff inside `stylesheets/application.css.scss`.
 
 More to come! Feel free to file an issue or bug me on [twitter](https://twitter.com/phillmv).
 
-## Getting Started
+## More Options
 
-Add the following to your own repo, under the `.github/workflows/mawl.yml` file path.
+(You may also define a `CNAME`, an `INPUT_FOLDER` (i.e. my-repo/docs) and a target `GITHUB_REPOSITORY` which will host the GitHub Page, i.e. in the `.github/workflows/mawl.yml` file,
 
 ```yaml
 name: MAWL
@@ -139,6 +144,9 @@ jobs:
       - uses: actions/checkout@v1
       - name: Build & deploy to GitHub Pages
         uses: phillmv/mawl@main
+        with:
+          CNAME: 'example.com'
+          INPUT_FOLDER: 'docs'
+          GITHUB_REPOSITORY: 'foobar/github-page'
 ```
 
-You may also define a `CNAME`, an `INPUT_FOLDER` (i.e. my-repo/docs) and a target `GITHUB_REPOSITORY` which will host the GitHub Page.
