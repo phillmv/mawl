@@ -150,3 +150,6 @@ jobs:
           GITHUB_REPOSITORY: 'foobar/github-page'
 ```
 
+## Wait, where's all the code?
+
+Mawl is actually a front end for Arquivo. Arquivo is a tool for archiving your notes & publishing your research. For more information, see the [arquivo repository](https://github.com/phillmv/arquivo).
