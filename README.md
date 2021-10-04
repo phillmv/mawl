@@ -1,5 +1,3 @@
-#mawl
-
 # mawl: Make A Weblog!
 
 mawl is a zero-configuration static site generator.
