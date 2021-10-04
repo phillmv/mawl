@@ -5,7 +5,7 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
 LABEL "com.github.actions.name"="mawl"
-LABEL "com.github.actions.description"="mawl: Make a Weblog! mawl converts repos w/markdown files into full blog-like static sites for hosting on GH Pages."
+LABEL "com.github.actions.description"="mawl: Make Another Weblog! mawl converts repos w/markdown files into full blog-like static sites for hosting on GH Pages."
 LABEL "com.github.actions.icon"="book-open"
 LABEL "com.github.actions.color"="blue"
 
