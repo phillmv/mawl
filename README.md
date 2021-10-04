@@ -43,7 +43,7 @@ on:
 
 jobs:
   build_and_deploy:
-    name: Make a Weblog
+    name: Make Another Weblog
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -138,7 +138,7 @@ on:
 
 jobs:
   build_and_deploy:
-    name: Make a Weblog
+    name: Make Another Weblog
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
