@@ -1,5 +1,5 @@
-name: 'MAWL: make a weblog!'
-description: 'MAWL: Make a weblog! MAWL converts repos w/markdown files into full blog-like static sites for hosting on GH Pages.'
+name: 'mawl: Make a Weblog!'
+description: 'mawl: Make a Weblog! mawl converts repos w/markdown files into full blog-like static sites for hosting on GH Pages.'
 author: "Phill MV"
 branding:
   icon: 'book-open'

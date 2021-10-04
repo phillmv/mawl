@@ -1,17 +1,72 @@
-# MAWL: Make a WebLog!
+#mawl
 
-MAWL is a zero-configuration static site generator that takes markdown or html files and spits out a blog-like website.
+# mawl: Make A Weblog!
 
-MAWL is opinionated, yet fully customizable, and was designed for busy people who know how to make websites but have other things to do.
+mawl is a zero-configuration static site generator.
+
+Given a repository with markdown or html files, mawl uses GitHub Actions to 
+- create a static bloggish website
+  - with a timeline,
+  - and rss feeds,
+  - and tags,
+- and publishes it to GitHub Pages.
+
+mawl is opinionated, but flexible, and was designed for busy people who know how to make websites but have other things to do.
+
+## How does it work?
+
+1. Write markdown or html files
+2. Install action in your repo
+3. Website comes out
+
+A file with a path like this:
+- `foo/bar/example.md`, will end up 
+- `foo/bar/example.html`
+
+**Example:** This [repository](https://github.com/phillmv/public2), generates [this site](https://phillmv.github.io/public2/).
+
+## Getting started
+
+First we have to add the [Action](https://docs.github.com/en/actions) to your repository, and make sure [GitHub Pages is turned on](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site).
+
+Pick a repository, and create a file with the path of:
+
+`.github/workflows/mawl.yml`
+
+and paste in:
+
+```yaml
+name: mawl
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build_and_deploy:
+    name: Make a Weblog
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build & deploy to GitHub Pages
+        uses: phillmv/mawl@main
+```
+
+Then, write content!
+
+Files ending with `.markdown`, `.md` and `.html` will get added to the site's timeline.
+
+Once you're done, [turn on GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site) and make sure the `gh-pages` branch is selected.
+
+Congratulations! You have a website.
 
 ## Goals
 
-- Literally, get a website with zero-configuration.
-  - In goes a repository with markdown files & images & pdfs, etc, and out comes a _fully functioning blog-like website_.
-  - Press a button to add the GitHub Action, and then it gets published thru GitHub Pages, that kind of thing.
-  - I mean it! Just you and markown, or html.
-- But if you're feeling fancy, you can also override the default templates & sass stylesheets & do whatever you need to do.
-  - I'm not here to judge. You do you, friend.
+- Literally, get a static website with zero-configuration.
+- But also if you're feeling fancy, do your own thing, I'm not here to judge, do your own thing. 
+
+I still have TODO docs on how to customize templates & what all the options are.
 
 ## Examples
 
@@ -21,14 +76,6 @@ I'm currently cleaning these up, so for now they're a bit scattered:
 
 - For a fancy example, see http://okayfail.com aka https://github.com/phillmv/okayfail.com/tree/master/source
 
-## Features
-
-- Reverse chronological timeline of entries
-- Write entries in markdown or html
-- File-based routing, i.e. the file paths in your folder are exactly what you get in the final site.
-- Browse entries by #tag, or @mention
-- RSS feeds, one for the whole site, and one per #tag and per @mention
-- Customize anything you want using templates in ERB and Sass. Or don't!
 
 ## Who is this for?
 
