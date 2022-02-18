@@ -26,19 +26,24 @@ if [ ! -z ${INPUT_CNAME} ]; then
   echo ${INPUT_CNAME} > CNAME
 fi
 
+
 remote_repo="https://${INPUT_GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${INPUT_GITHUB_REPOSITORY}.git" && \
 remote_branch=${INPUT_REMOTE_BRANCH}
 
-git init
+cd $GITHUB_WORKSPACE
+
+git switch $remote_branch
+mv .git /tmp/gitfolder && rm -rf * && cp -r /arquivo/out/. . && mv /tmp/gitfolder .git
+
 git config user.name "${INPUT_GITHUB_ACTOR}"
 git config user.email "${INPUT_GITHUB_ACTOR}@users.noreply.github.com"
-git add .
+git add -u
 
 echo -n 'Files to Commit:'
 ls -l | wc -l
 
 git commit -m 'mawl build.' > /dev/null 2>&1
-git push --force $remote_repo master:$remote_branch > /dev/null 2>&1
+git push
 # echo "Removing git..."
 rm -fr .git
 echo 'Done'
