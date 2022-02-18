@@ -32,7 +32,7 @@ remote_branch=${INPUT_REMOTE_BRANCH}
 
 cd $GITHUB_WORKSPACE
 
-git switch $remote_branch
+git checkout -b $remote_branch
 mv .git /tmp/gitfolder && rm -rf * && cp -r /arquivo/out/. . && mv /tmp/gitfolder .git
 
 git config user.name "${INPUT_GITHUB_ACTOR}"
@@ -43,7 +43,7 @@ echo -n 'Files to Commit:'
 ls -l | wc -l
 
 git commit -m 'mawl build.' > /dev/null 2>&1
-git push
+git push --set-upstream origin $remote_branch
 # echo "Removing git..."
 rm -fr .git
 echo 'Done'
