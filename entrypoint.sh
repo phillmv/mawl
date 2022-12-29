@@ -32,8 +32,9 @@ remote_branch=${INPUT_REMOTE_BRANCH}
 
 cd $GITHUB_WORKSPACE
 
-git checkout -b $remote_branch
-git pull $remote_repo $remote_branch
+git remote add pages-remote $remote_repo
+git checkout -b $remote_branch pages-remote/$remote_branch
+git pull pages-remote $remote_branch
 mv .git /tmp/gitfolder && rm -rf * && cp -r /arquivo/out/. . && mv /tmp/gitfolder .git
 
 git config user.name "${INPUT_GITHUB_ACTOR}"
