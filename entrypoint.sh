@@ -33,7 +33,7 @@ remote_branch=${INPUT_REMOTE_BRANCH}
 cd $GITHUB_WORKSPACE
 
 git remote add pages-remote $remote_repo
-git fetch
+git fetch pages-remote
 
 if ! git ls-remote --exit-code --heads pages-remote "$remote_branch";
 then
