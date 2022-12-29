@@ -33,8 +33,16 @@ remote_branch=${INPUT_REMOTE_BRANCH}
 cd $GITHUB_WORKSPACE
 
 git remote add pages-remote $remote_repo
-git checkout -b $remote_branch pages-remote/$remote_branch
-git pull pages-remote $remote_branch
+
+if ! git ls-remote --exit-code --heads pages-remote "$remote_branch" > /dev/null;
+then
+  git checkout -b $remote_branch pages-remote/$remote_branch
+  git pull pages-remote $remote_branch
+else
+  git checkout -b $remote_branch
+  git push -u pages-remote $remote_branch
+fi
+
 mv .git /tmp/gitfolder && rm -rf * && cp -r /arquivo/out/. . && mv /tmp/gitfolder .git
 
 git config user.name "${INPUT_GITHUB_ACTOR}"
@@ -45,4 +53,4 @@ echo -n 'Files to Commit:'
 ls -l | wc -l
 
 git commit -m 'mawl build.' > /dev/null 2>&1
-git push --set-upstream $remote_repo $remote_branch
+git push
