@@ -37,13 +37,10 @@ mv .git /tmp/gitfolder && rm -rf * && cp -r /arquivo/out/. . && mv /tmp/gitfolde
 
 git config user.name "${INPUT_GITHUB_ACTOR}"
 git config user.email "${INPUT_GITHUB_ACTOR}@users.noreply.github.com"
-git add -u
+git add -A
 
 echo -n 'Files to Commit:'
 ls -l | wc -l
 
 git commit -m 'mawl build.' > /dev/null 2>&1
-git push --set-upstream origin $remote_branch
-# echo "Removing git..."
-rm -fr .git
-echo 'Done'
+git push --set-upstream $remote_repo $remote_branch
