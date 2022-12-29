@@ -36,11 +36,11 @@ git remote add pages-remote $remote_repo
 
 if ! git ls-remote --exit-code --heads pages-remote "$remote_branch" > /dev/null;
 then
-  git checkout -b $remote_branch pages-remote/$remote_branch
-  git pull pages-remote $remote_branch
-else
   git checkout -b $remote_branch
   git push -u pages-remote $remote_branch
+else
+  git checkout -b $remote_branch pages-remote/$remote_branch
+  git pull pages-remote $remote_branch
 fi
 
 mv .git /tmp/gitfolder && rm -rf * && cp -r /arquivo/out/. . && mv /tmp/gitfolder .git
