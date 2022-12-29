@@ -33,6 +33,7 @@ remote_branch=${INPUT_REMOTE_BRANCH}
 cd $GITHUB_WORKSPACE
 
 git checkout -b $remote_branch
+git pull
 mv .git /tmp/gitfolder && rm -rf * && cp -r /arquivo/out/. . && mv /tmp/gitfolder .git
 
 git config user.name "${INPUT_GITHUB_ACTOR}"
