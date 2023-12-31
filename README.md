@@ -1,5 +1,9 @@
 # mawl: Make Another Weblog!
 
+⚠️ current broken, i have to fix the entrypoint for this puppy to handle the new generation scripts.
+
+---
+
 mawl is a zero-configuration static site generator.
 
 Given a repository with markdown or html files, mawl uses GitHub Actions to 
