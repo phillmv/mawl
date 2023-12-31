@@ -74,7 +74,7 @@ I still have TODO docs on how to customize templates & what all the options are.
 
 I'm currently cleaning these up, so for now they're a bit scattered:
 
-- For a simple example, see: https://phillmv.github.io/public2/ aka https://github.com/phillmv/public2 , or
+- For a simple example, see: https://phillmv.github.io/mawl-example/ aka https://github.com/phillmv/mawl-example , or
 
 - For a fancy example, see http://okayfail.com aka https://github.com/phillmv/okayfail.com/tree/master/source
 
